@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: stock
+  name: stock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: stock
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "stock"
+        dapr.io/app-port: "5000"
+    spec:
+      containers:
+      - image: stock-image
+        name: stock-image
+        ports:
+        - containerPort: 5000
