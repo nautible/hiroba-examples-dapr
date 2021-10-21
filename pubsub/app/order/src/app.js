@@ -11,7 +11,7 @@ const server = http.createServer((request, response) => {
       "Content-Type": "text/html"
     });
 
-    const publishUrl = `${daprUrl}/publish/${pubsubName}/deathStarStatus`;
+    const publishUrl = `${daprUrl}/publish/${pubsubName}/newOrder`;
     axios
       .post(publishUrl, {
         id: "0001",

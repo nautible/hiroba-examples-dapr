@@ -11,12 +11,12 @@ CORS(app)
 def subscribe():
     print("checkd subscribe")
     subscriptions = [{'pubsubname': 'pubsub',
-                      'topic': 'deathStarStatus',
-                      'route': 'dsstatus'}]
+                      'topic': 'newOrder',
+                      'route': 'order'}]
     return jsonify(subscriptions)
 
-@app.route('/dsstatus', methods=['POST'])
+@app.route('/order', methods=['POST'])
 def ds_subscriber():
     print(request.json, flush=True)
-    return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+    return json.dumps({'success':True, 'message': 'accept order'}), 200, {'ContentType':'application/json'}
 app.run()
