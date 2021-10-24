@@ -6,4 +6,4 @@ def apib1():
      return 'svc-b api-b1 called!'
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

@@ -23,3 +23,19 @@ spec:
         image: svc-c:1.0.0
         ports:
         - containerPort: 5000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-c
+  labels:
+    app: svc-c
+spec:
+  type: ClusterIP
+  selector:
+    app: svc-c
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+
