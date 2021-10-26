@@ -1,4 +1,5 @@
 # service-invocation
+サンプルコードをminkubeで動作確認するための手順です。
 
 ## 環境の前提条件
 - [dockerのインストール](https://docs.docker.jp/desktop/index.html#desktop-download-and-install)
@@ -23,4 +24,16 @@ kubectl apply -f deploy
 - アプリケーションの削除
 ```
 kubectl delete -f deploy
+```
+
+## 動作確認
+
+- port-fowardでsvc-aのポート5000をローカルから実行できるようにする
+```
+kubectl port-forward svc/svc-a 5000:5000
+```
+
+- curlでsvc-aを実行して動作確認する
+```
+curl localhost:5000/api-api1
 ```

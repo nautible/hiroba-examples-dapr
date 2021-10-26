@@ -20,3 +20,19 @@ kubectl apply -f deploy
 ```
 kubectl delete -f deploy
 ```
+## 動作確認
+
+- port-fowardでsvc-cのポート5000をローカルから実行できるようにする
+```
+kubectl port-forward svc/svc-c 5000:5000
+```
+
+- curlでsvc-cを実行しデータを保存する
+```
+curl -X POST -H "Content-Type: application/json" -d '{"product_id":"100", "quantity":"300"}'  localhost:5000/save
+```
+
+- curlでsvc-cを実行しデータを取得する
+```
+curl localhost:5000/get
+```
