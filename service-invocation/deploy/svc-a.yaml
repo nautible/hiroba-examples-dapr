@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-a
+  labels:
+    app: svc-a
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-a
+  template:
+    metadata:
+      labels:
+        app: svc-a
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "svc-a"
+        dapr.io/app-port: "5000"
+    spec:
+      containers:
+      - name: svc-a
+        image: svc-a:1.0.0
+        ports:
+        - containerPort: 5000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-a
+  labels:
+    app: svc-a
+spec:
+  type: ClusterIP
+  selector:
+    app: svc-a
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
