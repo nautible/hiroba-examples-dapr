@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-b
+  labels:
+    app: svc-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-b
+  template:
+    metadata:
+      labels:
+        app: svc-b
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "svc-b"
+        dapr.io/app-port: "5000"
+    spec:
+      containers:
+      - name: svc-b
+        image: svc-b:1.0.0
+        ports:
+        - containerPort: 5000
+
