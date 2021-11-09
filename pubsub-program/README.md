@@ -87,7 +87,7 @@ deploy/application配下のorder.yaml,payment.yaml,stock.yaml
 - Daprコンポーネント
 
 ```
-k apply -f deploy/aws/
+kubectl apply -f deploy/aws/
 ```
 
 - アプリケーション
