@@ -78,7 +78,7 @@ docker push <account-id>.dkr.ecr.<region>.amazonaws.com/stock-image:latest
 
 - コードの修正
 
-deploy/application配下のorder.yaml,payment.yaml,subscribe.yaml
+deploy/application配下のorder.yaml,payment.yaml,stock.yaml
 ```
 +      - image: <account-id>.dkr.ecr.<region>.amazonaws.com/order-image:latest # for ECR
 -      - image: order-image
