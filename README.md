@@ -1,19 +1,16 @@
-# nautible-examples-dapr
+# hiroba-examples-dapr
 
-## NATSインストール
-
-```
-$ kubectl apply -f https://raw.githubusercontent.com/nats-io/k8s/master/nats-server/single-server-nats.yml
-
-$ kubectl apply -f https://raw.githubusercontent.com/nats-io/k8s/master/nats-streaming-server/single-server-stan.yml
-```
+オブジェクトの広場 「第４回 Daprを活用して分散アプリケーションを構築してみよう」 向けに作成したサンプルコードです。
 
 
-## Publish
+- service-invocation
+  - ３. ServiceInvocation検証コード
+- state-management
+  - ４. StateManagement検証コード
+- pubsub-program
+  - ５. Publish and Subscribe検証コード（前半のプログラム内実装）
+- pubsub-declare
+  - ５. Publish and Subscribe検証コード（後半の宣言的実装）
 
-```
-POST http://localhost:<daprPort>/v1.0/publish/<pubsubname>/<topic>[?<metadata>]
-```
 
-API Reference
-https://docs.dapr.io/reference/api/pubsub_api/
+本リポジトリにあるコードの詳細な説明は[オブジェクトの広場 第４回の記事](https://www.ogis-ri.co.jp/otc/hiroba/technical/kubernetes_use/part4.html)をご覧ください。
