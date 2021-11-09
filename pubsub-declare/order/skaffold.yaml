@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta20
+kind: Config
+metadata:
+  name: order
+build:
+  artifacts:
+  - image: order-image
+    context: ./
+    docker:
+      dockerfile: ./Dockerfile
+  local:
+    push: false
+deploy:
+  kubectl:
+    manifests: 
+    - ../deploy/application/order.yaml
