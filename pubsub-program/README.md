@@ -50,10 +50,28 @@ skaffold dev
 
 AWS ECRへのアップロードについて詳細な手順は[公式ドキュメント](https://docs.aws.amazon.com/ja_jp/AmazonECR/latest/userguide/getting-started-cli.html)を参照
 
+- order
+
 ```
 cd order
 docker build -t <account-id>.dkr.ecr.<region>.amazonaws.com/order-image:latest .
 docker push <account-id>.dkr.ecr.<region>.amazonaws.com/order-image:latest
+```
+
+- payment
+
+```
+cd payment
+docker build -t <account-id>.dkr.ecr.<region>.amazonaws.com/payment-image:latest .
+docker push <account-id>.dkr.ecr.<region>.amazonaws.com/payment-image:latest
+```
+
+- stock
+
+```
+cd stock
+docker build -t <account-id>.dkr.ecr.<region>.amazonaws.com/stock-image:latest .
+docker push <account-id>.dkr.ecr.<region>.amazonaws.com/stock-image:latest
 ```
 
 ## デプロイ（AWS）
